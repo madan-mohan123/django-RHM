@@ -1,0 +1,349 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="{% static 'js/jquery-3.5.1.js' %}"></script>
+    <style>
+        body{
+            
+            background-image:url("{% static 'images/h4.jpg' %}"); 
+            background-attachment: fixed;
+     
+        }
+        *{
+            padding: 0;
+            margin: 0;
+        box-sizing: border-box;
+        }
+
+        .header{
+            background-color: rgb(51, 49, 49);
+            height: 80px;
+            padding: 0 20px;
+            opacity:0.8;
+        }
+        .nav{
+            float: right;
+        }
+        .nav ul li{
+            list-style: none;
+            display: inline-block;
+            line-height: 80px;
+        }
+        .nav ul li a{
+            text-decoration: none;
+            font-size: 17px;
+            color: white;
+            padding: 5px 20px;
+            border-radius: 10px;
+            text-transform: uppercase;
+            transition: 0.6s;
+        }
+        .nav ul li a:hover{
+background-color: gray;
+position: relative;
+top:-5px;
+color:rgb(7, 5, 12);
+        }
+        .nav ul li:hover .menu{
+            display: block;
+            
+        }
+       
+        .header img{
+            border-radius: 20px 0 20px 0;
+            width:130px;
+             height:90px;
+             padding-top: 5px;
+             float:left;
+           
+        }
+        .header p{
+            
+            display: inline-block;
+            line-height: 80px;
+            margin-left: 50px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 20px;
+            color:rgb(209, 209, 200);
+        }
+        .category{
+            width:100%;
+            height: 40px;
+            background-color: orangered;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .category .spece{
+            background-color: rgb(122, 122, 108);
+            width: 110px;
+            height: 30px;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 30px;
+            border-radius: 20px;
+
+        }
+        .spece:hover{
+            background-color: black;
+            color: white;
+            border-bottom: 3px solid yellow;
+        }
+       
+        .search{
+            width: 500px;
+            height: 50px;
+            margin:70px auto;
+            /* border:1px solid orange; */
+        }
+       .search input{
+            width: 100%;
+            height: 50px;
+            border-radius: 30px;
+            border:hidden;
+            font-size: 20px;
+            padding-left: 20px;
+        }
+
+table{
+    width: 90%;
+    margin:30px auto;
+    background-color: rgba(172, 218, 236, 0.7);
+    /* border:1px solid black; */
+    border-radius: 20px; 
+    
+}
+table:nth-child(even){
+    background-color: rgba(129, 119, 119, 0.7); 
+}
+table,tr,td{
+    border-collapse: collapse;
+    /* border:1px solid black; */
+}
+table tr{
+    margin-bottom: 30px;
+    /* border:5px solid orangered; */
+    border-spacing: 20px;
+  
+}
+td{
+  padding:20px 20px 0 20px;
+  font-size: 20px;
+  color: white;
+}
+td img{
+    width: 200px;
+    height: 200px;
+    border-radius: 10px;
+}
+.buy{
+width: 100px;
+border-radius: 20px;
+padding:10px;
+background-color: rgb(168, 108, 218);
+color: white;
+/* margin-right: 30px; */
+margin: 5px 30px;
+font-size: 20px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cn{
+width: 150px;
+border-radius: 20px;
+padding:10px;
+background-color: rgb(214, 119, 30);
+color: white;
+/* margin-right: 30px; */
+font-size: 20px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin: 5px 30px;
+}
+p{
+    color: white;
+}
+.buy:hover{
+    background-color: goldenrod;
+}
+.next{
+    width: 100px;
+    background-color: rgb(51, 49, 49);
+    color:white;
+    display: flex;
+align-items: center;
+justify-content: center;  
+padding: 20px;
+font-size: 15px;
+border-radius: 20px 100px 100px 20px;
+margin: 30px auto;
+
+}
+.next:hover{
+    background-color: red;
+}
+
+    </style>
+    <title>Search</title>
+</head>
+<body>
+ 
+   <div class="container">
+    <div class="header">
+        <img src="{% static 'images/h.jpg' %}"  alt="">
+        <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
+        <div class="nav">
+            <ul>
+                <li><a href="../">home</a></li>
+                <li><a href="../accounts/register">signup</a></li>
+                <li><a href="../accounts/login">login</a></li>
+                
+            </ul>
+        </div>
+    </div>
+    <div class="category">
+        <div class="spece">Bachelor</div>
+        <div class="spece">Residential</div>
+        <div class="spece">PG-Hostel</div>
+        <div class="spece">Local House</div>
+        <div class="spece">Girls Hostel</div>
+        <div class="spece">Boys Hostel</div>
+    </div>
+   
+    <div class="search">
+      
+        <form method=""  id='formid' >
+            {% csrf_token %}
+        <input type="search" id='mysearch' placeholder="Search by rooms eg.3bhk / Location eg. Mathura" name="search" >
+        
+        </form>
+               </div>
+              
+<h1 style="margin-left: 100px; color: teal;">Residential</h1>
+
+<!-- {% for hsf in houseinfo %}
+
+               <table>
+                   <tr >
+                       <td width="250px" rowspan="3" ><img src="{{hsf.img.url}}" ></td>
+   
+                   
+                     <tr><td style="color: rgb(86, 14, 219);">
+                        <h3 style="color: black;">Specification:</h3>  
+                        <p>{{hsf.Rooms}}</p>   
+                       <p>Address: {{hsf.Address}}</p>   
+                        <p> {{hsf.City}}</p>
+                            
+                            <p>  Ac rooms: {{hsf.AcRooms}}</p>
+                            <h3 style="margin-top:10px;">{{hsf.Status}}</h3>
+         
+                       </td>
+                      
+                    </tr>
+                
+                      <tr >
+                        <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
+                            contact no. {{hsf.Phone_No}}
+                               </td>
+                          <td  class="buy" style="float: right;">
+                        <a href="LogIn.html">Buy</a>
+                      </td>
+                      <td class="cn" style="float: right;">
+                       Rent {{hsf.Cost}}/- 
+                     </td>
+                    </tr>
+                    
+                   </tr>
+               </table>
+               {% endfor %} -->
+
+                <div id="mysearchdata">
+
+               <table>
+                   <tr >
+                       <td width="250px" rowspan="3" ><img src="{{hsf.img.url}}" ></td>
+   
+                   
+                     <tr><td style="color: rgb(86, 14, 219);">
+                        <h3 style="color: black;">Specification:</h3>  
+                        <p id="room">{{hsf.Rooms}}</p>   
+                       <p>Address: {{hsf.Address}}</p>   
+                        <p> {{hsf.City}}</p>
+                            
+                            <p>  Ac rooms: {{hsf.AcRooms}}</p>
+                            <h3 style="margin-top:10px;">{{hsf.Status}}</h3>
+         
+                       </td>
+                      
+                    </tr>
+                
+                      <tr >
+                        <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
+                            contact no. {{hsf.Phone_No}}
+                               </td>
+                          <td  class="buy" style="float: right;">
+                        <a href="LogIn.html">Buy</a>
+                      </td>
+                      <td class="cn" style="float: right;">
+                       Rent {{hsf.Cost}}/- 
+                     </td>
+                    </tr>
+                    
+                   </tr>
+               </table>
+                </div>
+
+               
+            <div class="next">
+                next Page
+            </div>
+</div>
+<script type="text/javascript">
+    
+
+    $(document).on('submit','#formid',function(e){
+     
+        e.preventDefault();
+        $.ajax(
+            {
+                type:'POST',
+                url:'search',
+                data:{
+                    searchdata:$('#mysearch').val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val()
+                    
+                },
+                success: function (data){
+                
+                //alert(data);
+                console.log(data)
+                
+              
+                //var ob=JSON.stringify(data[0],['fields']);
+                //var a=JSON.stringify(ob);
+                //console.log(ob)
+               // document.getElementById('room').innerHTML=JSON.stringify(data[0],['pk','fields']);
+               
+                
+                }
+            }
+        )
+       
+    });
+    
+
+
+ 
+</script>
+</body>
+</html>

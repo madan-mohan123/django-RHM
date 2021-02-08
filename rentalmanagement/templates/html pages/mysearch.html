@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for hsf in houseinfo %}
+    <table>
+        <tr >
+            <td width="250px" rowspan="3" ><img src="{{hsf.img.url}}" ></td>
+    
+        
+          <tr><td style="color: rgb(86, 14, 219);">
+             <h3 style="color: black;">Specification:</h3>  
+             <p id="room">{{hsf.Rooms}}</p>   
+            <p>Address: {{hsf.Address}}</p>   
+             <p> {{hsf.City}}</p>
+                 
+                 <p>  Ac rooms: {{hsf.AcRooms}}</p>
+                 <h3 style="margin-top:10px;">{{hsf.Status}}</h3>
+    
+            </td>
+           
+         </tr>
+     
+           <tr >
+             <td class="cn1" style="float: left; color: black; padding:5px 5px 5px 20px;margin-top:5px;">
+                 contact no. {{hsf.Phone_No}}
+                    </td>
+               <td  class="buy" style="float: right;">
+             <a href="LogIn.html">Buy</a>
+           </td>
+           <td class="cn" style="float: right;">
+            Rent {{hsf.Cost}}/- 
+          </td>
+         </tr>
+         
+        </tr>
+    </table>
+    
+    {% endfor %}  
+</body>
+</html>
+

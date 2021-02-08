@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css files/signup.css' %}">
+    <title>Signup</title>
+ <style>
+    body{
+        background-image: url("{% static 'images/h4.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        }
+ </style>
+</head>
+<body>
+    <div class="contain">
+
+        <img src="{% static 'images/log1.png' %}" alt="">
+
+        <form action="register" method="POST"  onsubmit = "return validation()">
+
+            {% csrf_token %}
+            
+        <label for="name">Name
+        <input type="text" name="username">
+    </label>
+    <label for="email">Email
+        <input type="text" name="email" pattern="([a-zA-Z0-9]+@gmail.com)|([a-zA-Z0-9]+@yahoo.com)" title="Format should be '@gmail.com' OR '@yahoo.com'">
+    </label>
+        <label for="password">Password
+        <input type="password" name="password" pattern="[a-zA-Z0-9]+[@_.#-]+[a-zA-Z0-9]+" title="Password should contain special character like @-_#. in between alphanumeric">
+    </label>
+  
+    <input type="radio" name="housepost" id="" class="check" value="Owner" checked> <span style="color: rgb(241, 7, 7);font-size: 20px;">Owner</span>
+    <input type="radio" name="housepost" id=""  class="check" value="Tenant"> <span style="color: rgb(240, 9, 9);font-size: 20px;">Tenant</span>
+    
+
+    <input class="btn" type="submit" value="sign up">
+    <label for="forgetpassword" class="forget"><a href="../php/forget.php">Forget Password </a></label>
+</form>
+<a href="login" style="margin:60px 0 20px 20px;display: block;text-decoration: none;font-size: 18px;color: cadetblue;">Back to Login</a>
+
+
+<div>
+
+    {% for msg in messages %}
+    <h1 style="text-align: center;">{{msg}}</h1>
+    {% endfor %}
+</div>
+    </div>
+
+    <script>  
+        function validation()  
+        {  
+            var name=document.f1.name.value;  
+            var ps=document.f1.password.value;  
+            var email=document.f1.email.value;
+            if(name.length=="" && ps.length=="" && email.length=="") {  
+                alert("User Name, Password, Email fields are empty");  
+                return false;  
+            }  
+            else  
+            {  
+                if(name.length=="") {  
+                    alert("User Name is empty");  
+                    return false;  
+                }   
+                if (ps.length=="") {  
+                alert("Password field is empty");  
+                return false;  
+                }  
+                if (email.length=="") {  
+                alert("email field is empty");  
+                return false;  
+                }  
+            }                             
+        }  
+    </script>  
+</body>
+</html>

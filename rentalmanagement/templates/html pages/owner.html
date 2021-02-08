@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>owner</title>
+    <link rel="stylesheet" href="{% static 'css files/owner.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+<style>
+      .fa-tasks,.fa-home,.fa-tasks{
+        margin-right: 15px;
+       font-size: 20px;
+       
+    }
+</style>
+</head>
+
+<body>
+   
+    <div class="container">
+
+    <div class="header">
+        <img src="{% static 'images/h.jpg' %}"  alt="">
+        <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
+        <div class="nav">
+            <ul>
+                <li><a href=""><i class="fa fa-home" aria-hidden="true"></i>home</a></li>
+                <li><a href="logout"><i class="fa fa-tasks" aria-hidden="true"></i>LogOut</a></li>
+                <li>
+                    <a href="dashboardowner.php">Back</a>
+                   
+                </li>
+            </ul>
+        </div>
+      
+    </div>
+
+    <div class="contain" >
+    <img src="{% static 'images/h2.jpg' %}" alt="">
+    <h2 style="text-align: center;color: white;margin-bottom: 20px;">Apartment Information</h2>
+
+    <form action="{% url 'apartment' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+
+    <label for="room" class="lab">Type :   </label>
+       
+        <select name="Room_Type" class="type" required>
+            <option value="P.G">P.G</option>
+                <option value="Flat">Flat</option>
+                <option value="Local House" selected>Local House</option>
+                <option value="Girls P.G">Girls P.G</option>
+                <option value="Boys P.G">Boys P.G</option>
+                <option value="others">others</option>
+               </select>
+  
+
+   <label for="room" class="lab">Rooms
+</label>
+     
+       <select name="Rooms" class="type" required>
+        <option value="3bhk">3bhk</option>
+            <option value="2bhk">2bhk</option>
+            <option value="1bhk">1bhk</option> 
+            <option value="others">others</option> 
+           </select>
+
+
+
+   <label for="ACroom" class="lab">ACRooms
+</label>
+     
+       <select name="AcRooms" class="type" required>
+        <option value="Yes">Yes</option>
+            <option value="No">No</option>
+           
+           </select>
+
+
+   <label for="City">City<input type="text" name="City" pattern="[A-Z][a-z]+" title="first charcter capital" required></label>
+   <label for="Adress">Address<input type="text" name="Address" ></label>
+   <label for="description">Discription<input type="text" name="Description" ></label>
+   <label for="Offer" class="lab">Offer
+</label>
+   <select name="Offer" class="type" required>
+    <option value="True">Yes</option>
+        <option value="False">No</option>
+       
+       </select>
+   <label for="Contact">Contact<input type="text" name="contact" pattern="[9687][0-9]{9}" title="number can only have 10 digits" required></label>
+   <label for="cost">Cost<input type="text" name="Cost" required></label>
+   
+   <input type="file" name="img" required>
+   <button type="submit" name=""> Submit</button>
+   <button type="reset"> Reset</button>
+   </form>
+
+    </div>
+
+
+
+
+    </div>
+</body>
+</html>

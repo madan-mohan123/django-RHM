@@ -1,0 +1,277 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <title>Template</title>
+    <link rel="stylesheet" href="{% static 'css files/index.css' %}">
+    <style>
+          .fa-tasks,.fa-home,.fa-tasks{
+        margin-right: 15px;
+       font-size: 20px;
+       
+    }
+    .fa-search{
+        margin-right: 10px;
+       font-size: 20px;  
+    }
+    .fa-bars{
+display: none;
+margin-right: 10px;
+       font-size: 20px;  
+       color: gray;
+    }
+    .fa-times{
+        display: none;
+        
+        list-style: none;
+        margin-right: 10px;
+       font-size: 25px;  
+       color: gray;
+       float: right;  
+       margin-top: 10px;
+    }
+    @media (max-width:1100px){
+    .nav{
+            position: fixed;
+            top:0px;
+            right:-200px;
+            z-index: 8;
+            width: 200px;
+            height: 250px;
+            background-image: linear-gradient(rgb(100, 198, 228),rgb(126, 126, 223));
+            transition: 1s;
+        }
+    .nav ul li{
+        display: none;
+       line-height: 50px;
+       
+    }
+    .fa-bars{
+        display: block;
+        color: rgb(184, 168, 168);
+        font-size: 30px;
+        margin-top: 20px;
+    float: right;
+    margin-right: 30px;
+   
+    }
+  
+
+} 
+    </style>
+</head>
+<body>
+    <div class="container">
+        
+        <div class="header">
+            <img src="{% static 'images/h.jpg' %}"  alt="">
+            <p>House <span style="color: gray; opacity: 0.7;font-size:30px;">Management</span></p>
+            <i class="fa fa-bars" aria-hidden="true" onclick="sidebar()"></i>
+            <div class="nav">
+                <i class="fa fa-times" aria-hidden="true" onclick="closesidebar()"></i>
+                <ul>
+                    
+                    <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i>home</a></li>
+                    <!-- <li><a href="accounts/logout"><i class="fa fa-tasks" aria-hidden="true"></i>Logout</a></li> -->
+                    <li><a href="{% url 'register' %}"><i class="fa fa-tasks" aria-hidden="true"></i>signup</a></li>
+                    <li><a href="{% url 'login' %}"><i class="fa fa-tasks" aria-hidden="true"></i>login</a></li>
+                    <li><a href="search" style="background-color: teal;font-size: 20px; text-transform: none;padding: 10px 20px;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
+                
+                </ul>
+               
+            </div>
+          
+        </div>
+        <div class="homeimage">
+            <div class="overwrite">
+                <h1>Welcome's Your Dream House</h1>
+            </div>
+            <div class="but">
+               <a href="#"><p>How May We help You ?</p> </a>
+            </div>
+        </div>
+        <div class="cards">
+            <h1 style="text-align: center;color: blue;margin: 40px 40px;">Your Home's</h1>
+            <div class="rec">
+               
+                <p style="color: white;" >
+                    It is a house gallary which show the some best house are customers based on ranking.
+                    you can see these house on this website and ask for buying them.
+                
+                </p>
+            </div>
+             <div class="box">
+            <div class="box1">
+                <img src="{% static 'images/h8.jpg' %}" alt="">
+                <h2 style="text-align: center;color: blue;margin-top:10px;margin-bottom:5px;font-family: Arial, Helvetica, sans-serif;">Radhey Valley</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:10px;">House,Vrindavan</h4>
+                <p style="color: white;opacity: 0.5;text-align: center;padding:5px" >
+                    This House is available in vrindavan, you can ask for buying it. It is 4bhk - Flat.
+                </p>
+            </div>
+            <div class="box1">
+                <img src="{% static 'images/hh6.jpg' %}" alt="">
+                <h2 style="text-align: center;color: blue;margin-bottom:5px;margin-top:10px;font-family: Arial, Helvetica, sans-serif;">O-MAx</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:10px;">Flat-12,Mathura</h4>
+                <p style="color: white;opacity: 0.5;padding:5px" >
+                    This flat is available in mathura, you can ask for buying it. It is 3bhk - Flat.
+
+                </p></div>
+            <div class="box1"><img src="{% static 'images/bpg3.jpg' %}" alt="">
+                <h2 style="text-align: center;color: blue;margin-top:10px;margin-bottom:5px;font-family: Arial, Helvetica, sans-serif;">Radhika Dham</h2>
+                <h4 style="text-align: center;color: white;opacity: 0.5;margin-bottom:10px;">P.G ,Kanpur</h4>
+                <p style="color: white;opacity: 0.5;padding:5px" >
+                    This P.G is available in Kanpur, you can ask for buying it. It is Boys P.G for 2 people.
+                </p></div> 
+        </div>
+        </div>
+<div class="section-1">
+        <h1 style="text-align: center;color: blue;margin-top:20px;margin-bottom:20px;font-family: Arial, Helvetica, sans-serif;">House Gallary</h1>
+<div class="slider">
+    <div class="slide-image">
+    <img src="{% static 'images/hh2.jpg' %}" alt="">
+    <img src="{% static 'images/hh4.jpg' %}" alt="">
+    <img src="{% static 'images/h5.jpg' %}" alt="">
+    <img src="{% static 'images/hh8.jpg' %}" alt="">
+    <img src="{% static 'images/hh1.jpg' %}" alt="">
+    </div>
+
+</div>
+</div>
+
+        <!-- <div class="colloboraters">
+            <h1 style="text-align: center;color: blue;">Our Colloboraters</h1>
+            <div class="colbo1">
+                <img src="{% static 'images/mohan.jpg' %}" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA University and I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Mohan agrawal)
+                </p>
+            </div>
+            <div class="colbo2">
+                <img src="{% static 'images/bhagat.jpg' %}" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA Universityand I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Bhagat Singh)
+                </p>
+            </div>
+            <div class="colbo1">
+                <img src="{% static 'images/udit.jpg' %}" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA Universityand I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Udit agrawal)
+                </p>
+            </div>
+            <div class="colbo2">
+                <img src="{% static 'images/amit.jpg' %}" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA University and I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Amit Kumar)
+                </p>
+            </div>
+            <div class="colbo1">
+                <img src="{% static 'images/mm.jpg' %}" alt="">
+                <p>Hello guys, I am B. Tech 3rd year student in GLA University and I am currently working on this project that is build with the help 
+                    of php at server side.I hope You like this website for your needs.(Madan Mohan)
+                </p>
+            </div>
+
+        </div> -->
+        <div class="footer">
+            <div class="mycontent">
+                <div class="about">
+                    <h2>About Us</h2>
+                    <p>Our caompany is IT company in global market.It provide you best Picture choosen by Author different countries.
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum dolore rem ducimus, id nam totam dicta iusto! Possimus 
+                        soluta ad qui praesentium sequi quas earum maiores, laudantium voluptatum corrupti porro.
+         
+                    </p>
+                </div>
+                <div class="link">
+                    <p>Special</p>
+                 <ul>
+                     <li><a href="#">Home</a></li>
+                     <li><a href="#">Privacy Policy</a></li>
+                     <li><a href="#">Disclaimer</a></li>
+                     <li><a href="html pages/coantact.html">Contact</a></li>
+                     <li><a href=#>Colloboraters</a></li>
+                 </ul>
+                </div>
+                <div class="link">
+                    <p>Details</p>
+                 <ul>
+                     <li><a href="#">Transaction</a></li>
+                     <li><a href="#">Best</a></li>
+                     <li><a href="#">Location</a></li>
+                     <li><a href=#>Customers</a></li>
+                     <li><a href=#>Tenants</a></li>
+                 </ul>
+                </div>
+                </div>
+                <div class="regis">
+                    <h1>Register To Get Home's</h1>
+                    <a href="html pages/signup.html">SignUp</a>
+                </div>
+                <div class="social">
+                    <span class="face"><i class="fa fa-facebook"></i></span>
+                    <span class="twit"><i class="fa fa-twitter"></i></span>
+                    <span class="insta"><i class="fa fa-instagram"></i></span>
+                    <span class="linked"><i class="fa fa-linkedin"></i></span>
+                    <span class="gmail"><i class="fa fa-google-plus"></i></span>
+                </div>
+               <span class="last">  &copy; All Rights Are Reserved.</span>
+               
+        </div>
+    </div>
+    <script>
+        function sidebar(){
+            var x=document.querySelectorAll(".header .nav ul li");
+            var y=document.querySelector(".header .nav");
+            y.style.display="block";
+            y.style.right="0px";
+            x[0].style.display="block";
+            x[1].style.display="block";
+            x[2].style.display="block";
+            x[3].style.display="block";
+            document.querySelector(".header .fa-times").style.display="block";
+            
+            
+        }
+        function closesidebar(){
+          
+            var y=document.querySelector(".header .nav");
+          
+            y.style.display="block";
+            y.style.right="-200px";
+        
+            document.querySelector(".header .fa-times").style.display="none"; 
+            
+        }
+        function my(x){
+            if(x.matches){
+            var x=document.querySelectorAll(".header .nav ul li");
+            var y=document.querySelector(".header .nav");
+          
+            y.style.display="block";
+            y.style.right="-200px";
+        
+            x[0].style.display="inline-block";
+            x[1].style.display="inline-block";
+            x[2].style.display="inline-block";
+            x[3].style.display="inline-block";
+            document.querySelector(".header .fa-times").style.display="none"; 
+           
+
+        }
+       
+        }
+
+        var mc=window.matchMedia("(min-width:1100px)");
+my(mc);
+mc.addListener(my);
+        
+    </script>
+</body>
+</html>

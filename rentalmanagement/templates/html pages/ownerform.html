@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta name="viewport" content="width=device-width, initial-scale=1"> 
+<link rel="stylesheet" href="{% static 'css files/amitowner.css' %}">  
+</head>  
+<body>  
+<form action="../dashboard/ownerform" method="POST"> 
+  {% csrf_token %} 
+  <div class="container">  
+   <h1> Owner Details</h1> 
+  <hr>  
+<label> Username </label>   
+<input type="text" name="username" placeholder= "Enter Firstname"   required />    
+
+<label>   
+Phone :  
+</label>  
+<input type="text" name="phone_no" placeholder="Enter phone no." size="10" pattern="[9687][0-9]{9}" title="number can only have 10 digits" required>   
+
+<label for="email"><b>Email</b></label> 
+<input type="email" placeholder="Enter Email" name="email" pattern="([a-zA-Z0-9]+@gmail.com)|([a-zA-Z0-9]+@yahoo.com)" title="Format should be '@gmail.com' OR '@yahoo.com'" required>  
+ <input type="file" name="pic" id="">
+<button type="submit" class="registerbtn">Done</button> 
+    </div> 
+</form>  
+</body>  
+</html>  
